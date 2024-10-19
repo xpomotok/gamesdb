@@ -1,0 +1,47 @@
+{
+    "version": "1.1",
+    "games": [
+        {
+            "title": "Skyrim",
+            "genre": "RPG",
+            "interest": 100,
+            "finished": false,
+            "notes": "",
+            "platform": "PC",
+            "released": "2013",
+            "rating": 100,
+            "image": "skyrim.jpg",
+            "description": "",
+            "pics": [],
+            "is_playing": false
+        },
+        {
+            "title": "Mudrunner",
+            "genre": "Sim",
+            "interest": 100,
+            "finished": false,
+            "notes": "",
+            "platform": "PC",
+            "released": "2017",
+            "rating": 100,
+            "image": "Mudrunner.jpg",
+            "description": "",
+            "pics": [],
+            "is_playing": false
+        },
+        {
+            "title": "Graveyard Keeper",
+            "genre": "RPG",
+            "interest": 0,
+            "finished": false,
+            "notes": "",
+            "platform": "PC",
+            "released": "15.08.2018",
+            "rating": 0,
+            "image": "G keeper 2.jpg",
+            "description": "",
+            "pics": [],
+            "is_playing": false
+        }
+    ]
+}

@@ -1,0 +1,263 @@
+{
+    "version": "1.1",
+    "games": [
+        {
+            "title": "Dungeon keeper",
+            "genre": [
+                "RTS",
+                "Builder sim"
+            ],
+            "interest": 0,
+            "finished": false,
+            "notes": [
+                "Started off again",
+                "Used keeperfx"
+            ],
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "https://upload.wikimedia.org/wikipedia/ru/4/4b/Dungkeep.jpg",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "War for the overworld",
+            "genre": [
+                "RTS",
+                "Builder sim"
+            ],
+            "interest": 0,
+            "finished": false,
+            "notes": [
+                "Slow as hell if played from external HDD",
+                "None"
+            ],
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "https://upload.wikimedia.org/wikipedia/en/0/0d/War_for_the_Overworld_Logo.png",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Dungeons 2",
+            "genre": "RTS",
+            "interest": 0,
+            "finished": false,
+            "notes": [
+                "Больше похоже на Warcraft 3",
+                "My pet dungeon"
+            ],
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Original war",
+            "genre": [
+                "RTS",
+                "Builder sim"
+            ],
+            "interest": 0,
+            "finished": false,
+            "notes": [
+                "Finished US campaign once",
+                "Struggling to finish Soviet"
+            ],
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Rage",
+            "genre": [
+                "FPS",
+                "Postapoc"
+            ],
+            "interest": 0,
+            "finished": false,
+            "notes": [
+                "Struggling to get back to game",
+                "I think this game were underrated"
+            ],
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Bordelands 2 RU",
+            "genre": [
+                "FPS"
+            ],
+            "interest": 0,
+            "finished": false,
+            "notes": [
+                "Returning from time to time",
+                "None"
+            ],
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Bordelands: Pre-sequel",
+            "genre": [
+                "FPS"
+            ],
+            "interest": 0,
+            "finished": false,
+            "notes": [
+                "None",
+                "None"
+            ],
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Half-Life",
+            "genre": "FPS",
+            "interest": 0,
+            "finished": false,
+            "notes": "Same old good Half-Life",
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Half-Life 2",
+            "genre": "FPS",
+            "interest": 0,
+            "finished": false,
+            "notes": "It's too long to complete once again.",
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Minecraft",
+            "genre": "Sandbox",
+            "interest": 0,
+            "finished": false,
+            "notes": "Time consumer. A lot of",
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Warhammer 40k:Armageddon",
+            "genre": "TBS",
+            "interest": 0,
+            "finished": false,
+            "notes": "And there is a lots of mods here",
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Gran turismo 3: A-spec",
+            "genre": "Racing",
+            "interest": 0,
+            "finished": false,
+            "notes": "Really hard because of emulation issues",
+            "platform": "PS2",
+            "released": "",
+            "rating": "",
+            "image": "https://upload.wikimedia.org/wikipedia/ru/c/c5/Gran_Turismo_3cover.jpg",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Mass effect 2",
+            "genre": "RPG",
+            "interest": 0,
+            "finished": false,
+            "notes": "It is known as a bestest best sci-fi RPG",
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Gran turismo 2",
+            "genre": "Racing",
+            "interest": 0,
+            "finished": false,
+            "notes": "Interest from time to time",
+            "platform": "PSX emu",
+            "released": "",
+            "rating": "",
+            "image": "https://upload.wikimedia.org/wikipedia/ru/8/83/GranTurismo2cover.jpg",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "Grid autosport",
+            "genre": "Racing",
+            "interest": 0,
+            "finished": false,
+            "notes": "Put the pedal to the metal",
+            "platform": "IOS",
+            "released": "",
+            "rating": "",
+            "image": "https://upload.wikimedia.org/wikipedia/ru/5/58/Grid_autosport.png",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "F1 2016",
+            "genre": "Racing",
+            "interest": 0,
+            "finished": false,
+            "notes": "Really hard controls",
+            "platform": "",
+            "released": "",
+            "rating": "",
+            "image": "",
+            "description": "",
+            "pics": []
+        },
+        {
+            "title": "ArmA 3",
+            "genre": "Sim",
+            "interest": 0,
+            "finished": false,
+            "notes": "Really hard controls",
+            "platform": "PC",
+            "released": "",
+            "rating": "",
+            "image": "https://upload.wikimedia.org/wikipedia/ru/8/8e/ArmA_III.jpeg",
+            "description": "",
+            "pics": []
+        }
+    ]
+}

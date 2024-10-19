@@ -1,0 +1,98 @@
+[
+  {
+    "nodes" : [
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{0, 32}, {240, 49.333333333333329}}",
+        "class" : "TextView",
+        "attributes" : {
+          "uuid" : "7DE2A3E0-FBA1-4EC1-82C4-E7A3B94BB111",
+          "font_size" : 17,
+          "corner_radius" : 7,
+          "background_color" : "RGBA(0.888889,0.888889,0.888889,1.000000)",
+          "frame" : "{{20, 20}, {200, 200}}",
+          "editable" : true,
+          "border_width" : 0,
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "text" : "Description",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextView",
+          "name" : "textview1",
+          "flex" : "WHLRTB"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{69, 92}, {100, 100}}",
+        "class" : "ImageView",
+        "attributes" : {
+          "border_width" : 0,
+          "frame" : "{{70, 70}, {100, 100}}",
+          "class" : "ImageView",
+          "corner_radius" : 10,
+          "uuid" : "4B7C2D9A-FFA4-44B2-AB11-95706798B979",
+          "name" : "imageview1",
+          "image_name" : "iob:flag_24"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{19, 200}, {200, 32}}",
+        "class" : "TextField",
+        "attributes" : {
+          "uuid" : "50CAF3B3-CE41-4AC4-BEE7-70F224F911E6",
+          "corner_radius" : 10,
+          "frame" : "{{20, 104}, {200, 32}}",
+          "tint_color" : "RGBA(0.903050,0.903050,0.903050,1.000000)",
+          "border_width" : 1,
+          "alignment" : "left",
+          "autocorrection_type" : "default",
+          "font_name" : "<System>",
+          "spellchecking_type" : "default",
+          "class" : "TextField",
+          "name" : "textfield1",
+          "font_size" : 17
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{28, 258}, {150, 32}}",
+        "class" : "Label",
+        "attributes" : {
+          "font_size" : 18,
+          "frame" : "{{45, 104}, {150, 32}}",
+          "uuid" : "A8C893A5-D0F9-4DBE-B811-F622498A5375",
+          "class" : "Label",
+          "alignment" : "left",
+          "text" : "Label",
+          "name" : "label1",
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      }
+    ],
+    "frame" : "{{0, 0}, {240, 296}}",
+    "class" : "View",
+    "attributes" : {
+      "enabled" : true,
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "flex" : ""
+    },
+    "selected" : false
+  }
+]

@@ -1,0 +1,176 @@
+{
+	"version" : "1.0",
+	"games" : [
+		{
+			"title": "Dungeon keeper",
+			"genre": ["RTS", "Builder sim"],
+			"Interest": 67,
+			"Finished": "False",
+			"notes": ["Started off again", "Used keeperfx"],
+			"platform": "",
+			"image": "https://upload.wikimedia.org/wikipedia/ru/4/4b/Dungkeep.jpg",
+			"rating":""
+		},
+		{
+			"title": "War for the overworld",
+			"genre": ["RTS", "Builder sim"],
+			"Interest": 67,
+			"Finished": "False",
+			"notes": ["Slow as hell if played from external HDD", "None"],
+			"platform": "",
+			"image": "https://upload.wikimedia.org/wikipedia/en/0/0d/War_for_the_Overworld_Logo.png",
+			"rating":""	
+		},
+		{
+			"title": "Dungeons 2",
+			"genre": "RTS",
+			"Interest": 60,
+			"Finished": "False",
+			"notes": ["Больше похоже на Warcraft 3", "My pet dungeon"],
+			"platform": "",
+			"image": "",
+			"rating":""	
+		},
+		{
+			"title": "Original war",
+			"genre": ["RTS", "Builder sim"],
+			"Interest": 80,
+			"Finished": "False",
+			"notes": ["Finished US campaign once", "Struggling to finish Soviet"],
+			"platform": "",
+			"image": "",
+			"rating":""	
+		},
+		{
+			"title": "Rage",
+			"genre": ["FPS", "Postapoc"],
+			"Interest": 50,
+			"Finished": "False",
+			"notes": ["Struggling to get back to game", "I think this game were underrated"],
+			"platform": "",
+			"image": "",
+			"rating":""	
+		},
+		{
+			"title": "Bordelands 2 RU",
+			"genre": ["FPS"],
+			"Interest": 70,
+			"Finished": "False",
+			"notes": ["Returning from time to time", "None"],
+			"platform": "",
+			"image": "",
+			"rating":""	
+		},
+		{
+			"title": "Bordelands: Pre-sequel",
+			"genre": ["FPS"],
+			"Interest": 70,
+			"Finished": "False",
+			"notes": ["None", "None"],
+			"platform": "",
+			"image": "",
+			"rating":""	
+		},
+
+	{
+		"title": "Half-Life",
+		"genre": "FPS",
+		"Interest": 0,
+		"Finished": "True",
+		"notes": "Same old good Half-Life",
+			"platform": "",
+			"image": "",
+			"rating":""	
+		
+	}, 
+	{
+		"title": "Half-Life 2",
+		"genre": "FPS",
+		"Interest": 0,
+		"Finished": "True",
+		"notes": "It's too long to complete once again.",
+			"platform": "",
+			"image": "",
+			"rating":""	
+	}, 
+	{
+		"title": "Minecraft",
+		"genre": "Sandbox",
+		"Interest": 100,
+		"Finished": "False",
+		"notes": "Time consumer. A lot of",
+			"platform": "",
+			"image": "",
+			"rating":""	
+	}, 
+	{
+		"title": "Warhammer 40k:Armageddon",
+		"genre": "TBS",
+		"Interest": 100,
+		"Finished": "False",
+		"notes": "And there is a lots of mods here",
+			"platform": "",
+			"image": "",
+			"rating":""	
+	}, 
+	{
+		"title": "Gran turismo 3: A-spec",
+		"genre": "Racing",
+		"platform":"PS2",
+		"Interest": 10,
+		"Finished": "False",
+		"notes": "Really hard because of emulation issues",
+			"platform": "PS2",
+			"image": "https://upload.wikimedia.org/wikipedia/ru/c/c5/Gran_Turismo_3cover.jpg",
+			"rating":""	
+}, {
+		"title": "Mass effect 2",
+		"genre": "RPG",
+		"Interest": 90,
+		"Finished": "False",
+		"notes": "It is known as a bestest best sci-fi RPG",
+			"platform": "",
+			"image": "",
+			"rating":""	
+},{
+		"title": "Gran turismo 2",
+		"genre": "Racing",
+		"Interest": 95,
+		"Finished": "False",
+		"notes": "Interest from time to time",
+		"platform":"PSX emu",
+			"image": "https://upload.wikimedia.org/wikipedia/ru/8/83/GranTurismo2cover.jpg",
+			"rating":""	
+	},
+	{
+		"title": "Grid autosport",
+		"genre": "Racing",
+		"Interest": 100,
+		"Finished": "False",
+		"notes": "Put the pedal to the metal",
+			"platform": "IOS",
+			"image": "https://upload.wikimedia.org/wikipedia/ru/5/58/Grid_autosport.png",
+			"rating":""	
+	},
+	{
+		"title": "F1 2016",
+		"genre": "Racing",
+		"Interest": 85,
+		"Finished": "False",
+		"notes": "Really hard controls",
+			"platform": "",
+			"image": "",
+			"rating":""	
+	},
+	{
+		"title": "ArmA 3",
+		"genre": "Sim",
+		"Interest": 85,
+		"Finished": "False",
+		"notes": "Really hard controls",
+		"platform": "PC",
+		"image": "https://upload.wikimedia.org/wikipedia/ru/8/8e/ArmA_III.jpeg",
+		"rating":""
+	}
+	]
+}
