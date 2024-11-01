@@ -4,12 +4,10 @@
 #
 
 import appex
-from html2text import html2text
 import console
-import re
 
-from game import Game
-from gamelist import GameList
+from gamesdb.models.game import Game
+from gamesdb.models.gamelist import GameList
 
 def main():
 	if not appex.is_running_extension():

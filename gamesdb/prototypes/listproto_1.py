@@ -1,7 +1,5 @@
 import ui
-from console import hud_alert
-from game import Game
-from gamelist import GameList
+from gamesdb.models.gamelist import GameList
 
 
 covers = "covers/"

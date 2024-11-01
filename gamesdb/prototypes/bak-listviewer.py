@@ -7,10 +7,8 @@ __author__ = 'Sergey Kuzmin <@gmail.com>'
 
 
 import ui
-import clipboard
 from console import hud_alert
-from game import Game
-from gamelist import GameList
+from gamesdb.models.gamelist import GameList
 
 
 class MyTableViewDelegate (object):

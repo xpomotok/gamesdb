@@ -1,8 +1,8 @@
 #import console
 
 
-from game import Game
-from gamelist import GameList
+from models.game import Game
+from models.gamelist import GameList
 
 def test_case_equality():
 	g = Game("g")

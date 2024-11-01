@@ -1,7 +1,6 @@
 import ui
-import clipboard
 from console import hud_alert
-from game import Game
+from models.game import Game
 
 viewname = "ui/GameView"
 

@@ -9,15 +9,10 @@ __all__ = []
 
 __author__ = 'Sergey Kuzmin <@gmail.com>'
 
-
-from typing import Collection
 from ui_config import ui_config
 import ui
-import clipboard
-from console import hud_alert
-from game import Game
-from gamelist import GameList
-from text_view import text_view
+from models.game import Game
+from models.gamelist import GameList
 from bottom_menu_class import BottomMenu
 from form_details import FormDetails
 from form_edit import FormEdit
@@ -36,50 +31,43 @@ GameCollection = GameList("Collection")
 class Controller (object):
 	
 	def update_view(self, name, model):
-		
 		if name == 'details':
 			print(name)
 		pass
 
+
 class App (object):
-	
+
 	def __init__(self):
 		self.Controller = Controller()
 		
-		self.MainWindow : ui.NavigationView
+		self.MainWindow: ui.NavigationView
 	
-		self.FormEdit : ui.View
-		self.FormDetails : ui.View
-		self.FormListView : ui.View
-		self.CurrentView : ui.View
-		self.CurrentList : GameList
-		self.CurrentGame : Game
-		self.CurrentRow : int
-		self.CurrentFile : str
+		self.FormEdit: ui.View
+		self.FormDetails: ui.View
+		self.FormListView: ui.View
+		self.CurrentView: ui.View
+		self.CurrentList: GameList
+		self.CurrentGame: Game
+		self.CurrentRow: int
+		self.CurrentFile: str
 		
 		WhishGames.load(whishname)
 		NowPlaying.load(playname)
 		GameCollection.load(allname)
-		
-		
+
 		self.create_main_view()
 		self.CurrentList = WhishGames
 		self.CurrentFile = whishname
 		self.FormListView.name = self.CurrentList.title
-		
-
 
 	def create_main_view(self):
-		
 		self.FormListView = ui.View()
-		
 		self.FormListView = ui.load_view("ui/GameListView.pyui")
-		
 		self.Edit = ui.View()
 		self.TableView = self.FormListView['tableview1']
-		
 		self.MainWindow = ui.NavigationView(self.FormListView)
-		self.MainWindow.name = "Игродата"
+		self.MainWindow.name = "GamesDB"
 		self.MainWindow.title_color = 'orange'
 		self.MainWindow.tint_color = 'orange'
 		self.MainWindow.background_color = 'white'
@@ -102,7 +90,7 @@ class App (object):
 		
 		self.FormListView.add_subview(ff)
 
-		rbtn1= ui.ButtonItem(title='Save')
+		rbtn1 = ui.ButtonItem(title='Save')
 		#rbtn1= ui.ButtonItem(title='', image='iob:ios7_copy_outline_24')
 		rbtn1.action = self.save_all
 		
@@ -117,10 +105,9 @@ class App (object):
 		tv.data_source = tds
 		tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row	
 		tv.reload()
-		
 		tv.editable = True
 
-	### Функции для работы с основным списком игр
+	# Функции для работы с основным списком игр
 	def tableview_did_select(self, tableview, section, row):
 		# Called when a row is selected.
 		self.CurrentGame = tableview.data_source.items[row]
@@ -134,7 +121,6 @@ class App (object):
 		#self.MainWindow.pop_view()
 		
 		#self.Controller.update_view('details', model)
-		
 
 	def tableview_cell_for_row(self, tableview, section, row):
 		# Create and return a cell for the given section/row
@@ -164,25 +150,21 @@ class App (object):
 		cell.image_view.corner_radius = 6
 		cell.image_view.flex = 'tb'
 		# print(cell.image_view.flex)
-		
 		return cell
 
 	def button_tapped(self, sender):
 		'@type sender: ui.Button'
 		sender.superview.close()
-		pass
-			
+
 	def view_playing(self, sender):		
 		self.CurrentList = NowPlaying
 		self.CurrentFile = playname
-
 		self.FormListView.name = self.CurrentList.title
 		
 		tv = self.TableView
 		tds = ui.ListDataSource(items=NowPlaying.games)
 		tv.data_source = tds
 		tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row
-		
 		tv.reload()
 		
 		#hud_alert('Button!')
@@ -190,7 +172,6 @@ class App (object):
 	def view_whishlist(self, sender):
 		self.CurrentList = WhishGames
 		self.CurrentFile = whishname
-		
 		self.FormListView.name = WhishGames.title
 		
 		tv = self.TableView
@@ -204,16 +185,13 @@ class App (object):
 	def view_collection(self, sender):
 		self.CurrentList = GameCollection
 		self.CurrentFile = allname
-		
 		self.FormListView.name = GameCollection.title
 		
 		tv = self.TableView
 		tds = ui.ListDataSource(items=GameCollection.games)
 		tv.data_source = tds
 		tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row
-		
 		tv.reload()
-		
 
 	def view_new_game(self, sender):
 		# определить текущий список и добавить в него новую игру
@@ -227,17 +205,15 @@ class App (object):
 		self.FormEdit = Editor.Form
 		self.FormEdit.present('sheet', hide_close_button=True)
 		
-		
 	def save_all(self, sender):
 		GameCollection.save(allname)
 		WhishGames.save(whishname)
 		NowPlaying.save(playname)
-			
+
 
 def main():
-	GamesDb = App()
-	GamesDb.run()
-	
+	games_db = App()
+	games_db.run()
 	
 if __name__ == "__main__":
 	main()

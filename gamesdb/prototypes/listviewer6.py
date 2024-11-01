@@ -7,14 +7,13 @@ __author__ = 'Sergey Kuzmin <@gmail.com>'
 
 
 import ui
-import clipboard
 from console import hud_alert
-from game import Game
-from gamelist import GameList
+from gamesdb.models.game import Game
+from gamesdb.models.gamelist import GameList
 from bottom_menu import bottom_menu
-from menu_button import menu_button
-from menu_button_label import menu_button_label
-from text_view import text_view
+from gamesdb.menu_button import menu_button
+from gamesdb.menu_button_label import menu_button_label
+from gamesdb.text_view import text_view
 
 
 covers = "covers/"

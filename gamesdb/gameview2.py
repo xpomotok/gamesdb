@@ -13,10 +13,9 @@ __author__ = 'Sergey Kuzmin <@gmail.com>'
 
 import appex
 import ui
-import clipboard
 from console import hud_alert
-from game import Game
-from gamelist import GameList
+from models.game import Game
+from models.gamelist import GameList
 
 viewname = "ui/GameView2"
 

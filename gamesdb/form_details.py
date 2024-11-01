@@ -1,6 +1,6 @@
 #03.06.2022- Initial import
 import ui
-from game import Game
+from models.game import Game
 from ui_config import ui_config
 from form_edit import FormEdit
 # from PIL import Image

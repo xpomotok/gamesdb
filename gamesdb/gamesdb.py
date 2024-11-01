@@ -6,10 +6,6 @@ __all__ = []
 __author__ = 'Sergey Kuzmin <@gmail.com>'
 
 
-from game import Game
-from gamelist import GameList
-
-
 class GamesDb(object):
 	covers = "covers/"
 	thumbs = "thumbs/"

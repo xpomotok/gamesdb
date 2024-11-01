@@ -3,7 +3,7 @@
 '''
 
 import ui
-from game import Game
+from models.game import Game
 
 covers = "covers/"
 thumbs = "thumbs/"
