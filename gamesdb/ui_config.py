@@ -1,3 +1,5 @@
+__all__ = ["Config"]
+
 class ui_config():
 # Main app	
 	#btn_label_color = "#929292"
@@ -16,7 +18,17 @@ class ui_config():
 	edit_textview_font_size = 12
 
 
-class Config():
-	covers_path = "../assets/covers"
-	thumbs_path = "../assets/thumbs"
+class Config:
+	app_name = "GamesDB"
+	covers_path = "../assets/covers/"
+	thumbs_path = "../assets/thumbs/"
+	db_path = "../assets/db"
+	wish_name = "db/wishlist.json"
+	play_name = "db/playing.json"
+	all_name = "db/games.json"
+	database = {1: "Wishlist", 2: "Now playing", 3: "Collection"}
+	data_files = {1: wish_name, 2: play_name, 3: all_name}
 
+	color_main_title = 'orange'
+	color_main_back = 'white'
+	main_frame = (0, 0, 390, 734)

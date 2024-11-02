@@ -1,15 +1,10 @@
-# 01.06.2022 - нижнее меню обернуто в класс
-# 01.06.2022 - кнопки нижнего меню создаются через класс нижнего меню
-# 03.06.2022 - dummy a favor
-# 25.06.2022 - Перенос внутрь Pythonista
+__version__ = '0.1.3.0'
 
-__version__ = '0.1.2.6'
-
-__all__ = []
+__all__ = ["App"]
 
 __author__ = 'Sergey Kuzmin <@gmail.com>'
 
-from ui_config import ui_config
+from ui_config import Config
 import ui
 from models.game import Game
 from models.gamelist import GameList
@@ -17,203 +12,206 @@ from gamesdb.ui.bottom_menu import BottomMenu
 from gamesdb.form_details import FormDetails
 from form_edit import FormEdit
 
-# simple globals
-covers = ui_config.covers_path
-thumbs = ui_config.thumbs_path
-whishname = "db/wishlist.json"
-playname = "db/playing.json"
-allname = "db/games.json"
-WhishGames = GameList("Wishlist")
-NowPlaying = GameList("Now Playing")
-GameCollection = GameList("Collection")
+config = Config()
+
+WishGames = GameList(config.database[1])
+NowPlaying = GameList(config.database[2])
+GameCollection = GameList(config.database[3])
 
 
-class Controller (object):
-	
-	def update_view(self, name, model):
-		if name == 'details':
-			print(name)
-		pass
+class Controller(object):
+    @staticmethod
+    def update_view(name, model):
+        if name == 'details':
+            print(name)
+        pass
 
 
-class App (object):
+def show_view(game, view):
+    my_view = view(game)
+    my_view.name = game.title # toje lishnee
+    my_view.show_details()
+    my_view.present('sheet', hide_close_button=False)
 
-	def __init__(self):
-		self.Controller = Controller()
-		
-		self.MainWindow: ui.NavigationView
-	
-		self.FormEdit: ui.View
-		self.FormDetails: ui.View
-		self.FormListView: ui.View
-		self.CurrentView: ui.View
-		self.CurrentList: GameList
-		self.CurrentGame: Game
-		self.CurrentRow: int
-		self.CurrentFile: str
-		
-		WhishGames.load(whishname)
-		NowPlaying.load(playname)
-		GameCollection.load(allname)
 
-		self.create_main_view()
-		self.CurrentList = WhishGames
-		self.CurrentFile = whishname
-		self.FormListView.name = self.CurrentList.title
+class App(object):
 
-	def create_main_view(self):
-		self.FormListView = ui.View()
-		self.FormListView = ui.load_view("ui/GameListView.pyui")
-		self.Edit = ui.View()
-		self.TableView = self.FormListView['tableview1']
-		self.MainWindow = ui.NavigationView(self.FormListView)
-		self.MainWindow.name = "GamesDB"
-		self.MainWindow.title_color = 'orange'
-		self.MainWindow.tint_color = 'orange'
-		self.MainWindow.background_color = 'white'
-		#if (ui_config.has_bottom_menu):
-			#add_bottom_menu()
-		self.MainWindow.frame = (0, 0, 390, 734)
-		bmenu_x = self.MainWindow.bounds[0]
-		bmenu_w = self.MainWindow.bounds[2]
-		bmenu_y = self.MainWindow.bounds[3]
-		
-		bmenu_h = 56
-		ff = BottomMenu()
-		ff.frame = (bmenu_x, bmenu_y - 80 - (bmenu_h), bmenu_w, bmenu_h + 56)
-		#ff.frame = (bmenu_x, bmenu_y - 72 - (bmenu_h), bmenu_w, bmenu_h + 56)
-		
-		ff.add_button('Playing', 'iob:game_controller_a_32', self.view_playing)
-		ff.add_button('Whishlist', 'iob:ios7_star_outline_32', self.view_whishlist)
-		ff.add_button('All games', 'iob:ios7_box_outline_32', self.view_collection)
-		ff.add_button('Add new', 'iob:ios7_compose_outline_32', self.view_new_game)
-		
-		self.FormListView.add_subview(ff)
+    def __init__(self):
+        self.MainWindow = None
+        self.TableView = None
+        self.Edit = None
+        self.FormListView = None
+        # self.CurrentFile = None
+        self.CurrentList = None
+        self.Controller = Controller()
 
-		rbtn1 = ui.ButtonItem(title='Save')
-		#rbtn1= ui.ButtonItem(title='', image='iob:ios7_copy_outline_24')
-		rbtn1.action = self.save_all
-		
-		self.MainWindow.right_button_items = rbtn1,
-		self.MainWindow.present(style='fullscreen', hide_title_bar=False, hide_close_button=False)
-		
-	def run(self):		
-		tv = self.TableView
-		tv.delegate.tableview_did_select = self.tableview_did_select
-		
-		tds = ui.ListDataSource(items=self.CurrentList.games)
-		tv.data_source = tds
-		tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row	
-		tv.reload()
-		tv.editable = True
+        self.MainWindow: ui.NavigationView
 
-	# Функции для работы с основным списком игр
-	def tableview_did_select(self, tableview, section, row):
-		# Called when a row is selected.
-		self.CurrentGame = tableview.data_source.items[row]
-		
-		Details = FormDetails(self.CurrentList.games[row])
-		# print(self.CurrentList.games[row])
-		#Details = FormDetails(self.CurrentGame)
-		self.FormDetails = Details.show_details()
-		self.FormDetails.name = self.CurrentGame.title
-		self.FormDetails.present('sheet', hide_close_button=False)
-		#self.MainWindow.pop_view()
-		
-		#self.Controller.update_view('details', model)
+        self.FormEdit: ui.View = None
+        self.FormDetails: ui.View = None
+        self.FormListView: ui.View = None
+        self.CurrentView: ui.View = None
 
-	def tableview_cell_for_row(self, tableview, section, row):
-		# Create and return a cell for the given section/row
-		# print("test")
-		#global ActualGame
-		data: Game
-		data = tableview.data_source.items[row]
-		#ActualGame = data
-		
-		cell = ui.TableViewCell(style='subtitle')
-		cell.accessory_type = 'disclosure_indicator'
-		cell.text_label.text = data.title
-		cell.detail_text_label.text = ''.join([data.platform, ", ", data.released])
-			
-		if data.image != "":
-			img = ui.Image(''.join([covers, data.image]))
-		else:
-			img = ui.Image(''.join([covers, "unknown_game.png"]))
-		
-		
-		#
-		#cell.image_view.content_mode = 
-		#cell.image_view.flex = 'tb'
-		cell.image_view.image = img
-	
-		cell.image_view.flex = 'tb'
-		cell.image_view.corner_radius = 6
-		cell.image_view.flex = 'tb'
-		# print(cell.image_view.flex)
-		return cell
+        self.CurrentList: GameList
+        self.CurrentGame: Game = None
+        self.CurrentRow: int = 0
+        self.CurrentFile: str = ""
 
-	def button_tapped(self, sender):
-		'@type sender: ui.Button'
-		sender.superview.close()
+        WishGames.load(config.data_files[1])
+        NowPlaying.load(config.data_files[2])
+        GameCollection.load(config.data_files[3])
 
-	def view_playing(self, sender):		
-		self.CurrentList = NowPlaying
-		self.CurrentFile = playname
-		self.FormListView.name = self.CurrentList.title
-		
-		tv = self.TableView
-		tds = ui.ListDataSource(items=NowPlaying.games)
-		tv.data_source = tds
-		tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row
-		tv.reload()
-		
-		#hud_alert('Button!')
+        self.create_main_view()
 
-	def view_whishlist(self, sender):
-		self.CurrentList = WhishGames
-		self.CurrentFile = whishname
-		self.FormListView.name = WhishGames.title
-		
-		tv = self.TableView
-		tds = ui.ListDataSource(items=WhishGames.games)
-		tv.data_source = tds
-		tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row
-		
-		tv.reload()
-		#hud_alert('Button!')		
+        self.change_current_view(WishGames)
 
-	def view_collection(self, sender):
-		self.CurrentList = GameCollection
-		self.CurrentFile = allname
-		self.FormListView.name = GameCollection.title
-		
-		tv = self.TableView
-		tds = ui.ListDataSource(items=GameCollection.games)
-		tv.data_source = tds
-		tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row
-		tv.reload()
+    def change_current_view(self, games):
+        self.CurrentList = games
+        self.CurrentFile = games.title
+        self.FormListView.name = self.CurrentList.title
 
-	def view_new_game(self, sender):
-		# определить текущий список и добавить в него новую игру
-		#self.CurrentList = GameCollection
-		#self.CurrentFile = allname
-		
-		NewGame = Game('New')
-		self.CurrentList.add(NewGame)
-		self.CurrentGame = NewGame
-		Editor = FormEdit(self.CurrentGame)
-		self.FormEdit = Editor.Form
-		self.FormEdit.present('sheet', hide_close_button=True)
-		
-	def save_all(self, sender):
-		GameCollection.save(allname)
-		WhishGames.save(whishname)
-		NowPlaying.save(playname)
+        tv = self.TableView
+        tv.delegate.tableview_did_select = self.tableview_did_select
+
+        tds = ui.ListDataSource(items=self.CurrentList.games)
+        tv.data_source = tds
+        tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row
+        tv.reload()
+        tv.editable = True
+
+    def create_main_view(self):
+        self.FormListView = ui.View()
+        self.FormListView = ui.load_view("ui/GameListView.pyui")
+        self.Edit = ui.View()
+        self.TableView = self.FormListView['tableview1']
+        self.MainWindow = ui.NavigationView(self.FormListView)
+        self.MainWindow.name = config.app_name
+        self.MainWindow.title_color = config.color_main_title
+        self.MainWindow.tint_color = config.color_main_title
+        self.MainWindow.background_color = config.color_main_back
+        self.MainWindow.frame = config.main_frame
+
+        bmenu_x = self.MainWindow.bounds[0]
+        bmenu_w = self.MainWindow.bounds[2]
+        bmenu_y = self.MainWindow.bounds[3]
+
+        bmenu_h = 56
+        ff = BottomMenu()
+        ff.frame = (bmenu_x, bmenu_y - 80 - (bmenu_h), bmenu_w, bmenu_h + 56)
+
+        ff.add_button('Playing', 'iob:game_controller_a_32', self.view_playing)
+        ff.add_button('Whishlist', 'iob:ios7_star_outline_32', self.view_wishlist)
+        ff.add_button('All games', 'iob:ios7_box_outline_32', self.view_collection)
+        ff.add_button('Add new', 'iob:ios7_compose_outline_32', self.view_new_game)
+
+        self.FormListView.add_subview(ff)
+
+        rbtn1 = ui.ButtonItem(title='Save')
+        # rbtn1= ui.ButtonItem(title='', image='iob:ios7_copy_outline_24')
+        rbtn1.action = self.save_all
+
+        self.MainWindow.right_button_items = rbtn1,
+        self.MainWindow.present(style='fullscreen', hide_title_bar=False, hide_close_button=False)
+
+    def run(self):
+        # tv = self.TableView
+        # tv.delegate.tableview_did_select = self.tableview_did_select
+        #
+        # tds = ui.ListDataSource(items=self.CurrentList.games)
+        # tv.data_source = tds
+        # tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row
+        # tv.reload()
+        # tv.editable = True
+        pass
+
+    # Функции для работы с основным списком игр
+    def tableview_did_select(self, tableview, section, row):
+        # Called when a row is selected.
+        self.CurrentGame = tableview.data_source.items[row]
+        show_view(self.CurrentGame, FormDetails)
+
+        # details = FormDetails(self.CurrentList.games[row])
+        # # print(self.CurrentList.games[row])
+        # # Details = FormDetails(self.CurrentGame)
+        # self.FormDetails = details.show_details() # здесь по классике должно быть show
+        # self.FormDetails.name = self.CurrentGame.title
+        # self.FormDetails.present('sheet', hide_close_button=False)
+
+    # self.MainWindow.pop_view()
+
+    # self.Controller.update_view('details', model)
+
+    @staticmethod
+    def load_image(image) -> ui.Image:
+        if image != "":
+            return ui.Image(''.join([config.covers_path, image]))
+        else:
+            return ui.Image(''.join([config.covers_path, "unknown_game.png"]))
+
+    def tableview_cell_for_row(self, tableview, section, row):
+        # Create and return a cell for the given section/row
+        # print("test")
+        # global ActualGame
+        data: Game
+        data = tableview.data_source.items[row]
+        # ActualGame = data
+
+        cell = ui.TableViewCell(style='subtitle')
+        cell.accessory_type = 'disclosure_indicator'
+        cell.text_label.text = data.title
+        cell.detail_text_label.text = ''.join([data.platform, ", ", data.released])
+
+        img = self.load_image(data.image)
+
+        #
+        # cell.image_view.content_mode =
+        # cell.image_view.flex = 'tb'
+        cell.image_view.image = img
+
+        cell.image_view.flex = 'tb'
+        cell.image_view.corner_radius = 6
+        cell.image_view.flex = 'tb'
+        # print(cell.image_view.flex)
+        return cell
+
+    def button_tapped(self, sender):
+        '@type sender: ui.Button'
+        sender.superview.close()
+
+    def view_playing(self, sender):
+        self.CurrentFile = config.play_name
+        self.change_current_view(NowPlaying)
+
+    def view_wishlist(self, sender):
+        self.CurrentFile = config.wish_name
+        self.change_current_view(WishGames)
+
+    def view_collection(self, sender):
+        self.CurrentFile = config.all_name
+        self.change_current_view(GameCollection)
+
+    def view_new_game(self, sender):
+        # определить текущий список и добавить в него новую игру
+        # self.CurrentList = GameCollection
+        # self.CurrentFile = allname
+
+        new_game = Game('New')
+        self.CurrentList.add(new_game)
+        self.CurrentGame = new_game
+        editor = FormEdit(self.CurrentGame)
+        self.FormEdit = editor.Form
+        self.FormEdit.present('sheet', hide_close_button=True)
+
+    def save_all(self, sender):
+        GameCollection.save(config.all_name)
+        WishGames.save(config.wish_name)
+        NowPlaying.save(config.play_name)
 
 
 def main():
-	games_db = App()
-	games_db.run()
-	
+    games_db = App()
+    games_db.run()
+
+
 if __name__ == "__main__":
-	main()
+    main()
