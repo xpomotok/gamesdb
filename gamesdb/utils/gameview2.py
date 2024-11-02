@@ -23,8 +23,8 @@ def button_tapped(sender):
 	'@type sender: ui.Button'
 	# Get the button's title for the following logic:
 	t = sender.title
-	Games = GameList("Wishlist")
-	Games.load("db/wishlist.json")
+	games = GameList("Wishlist")
+	games.load("db/wishlist.json")
 	
 	# label = sender.superview['label1']
 	if t == 'Save':
@@ -42,15 +42,15 @@ def button_tapped(sender):
 		#new_game.notes = s_notes.text
 		new_game.image = s_image.text
 		
-		Games.add(new_game)
+		games.add(new_game)
 		
-		Games.save("db/wishlist.json")
+		games.save("db/wishlist.json")
 		
 		hud_alert('Done.')
-		#new_game.print_game()
-		
+
 		sender.superview.close()
-		
+
+
 def is_extension():
 	if not appex.is_running_extension():
 		print('This script is intended to be run from the sharing extension.')

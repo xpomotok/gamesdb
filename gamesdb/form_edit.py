@@ -6,9 +6,9 @@ __author__ = "Sergey Kuzmin"
 
 import ui
 from models.game import Game
-from my_text_view_delegate import MyTextViewDelegate
+from gamesdb.ui.my_text_view_delegate import MyTextViewDelegate
 from ui_config import ui_config
-from my_table_edit import MyTableEditDataSource
+from gamesdb.ui.my_table_edit import MyTableEditDataSource
 
 
 class FormEdit():

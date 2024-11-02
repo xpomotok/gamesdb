@@ -13,8 +13,8 @@ from ui_config import ui_config
 import ui
 from models.game import Game
 from models.gamelist import GameList
-from bottom_menu_class import BottomMenu
-from form_details import FormDetails
+from gamesdb.ui.bottom_menu import BottomMenu
+from gamesdb.form_details import FormDetails
 from form_edit import FormEdit
 
 # simple globals
@@ -83,10 +83,10 @@ class App (object):
 		ff.frame = (bmenu_x, bmenu_y - 80 - (bmenu_h), bmenu_w, bmenu_h + 56)
 		#ff.frame = (bmenu_x, bmenu_y - 72 - (bmenu_h), bmenu_w, bmenu_h + 56)
 		
-		ff.add_button('Играю','iob:game_controller_a_32', self.view_playing)
-		ff.add_button('Желаемое', 'iob:ios7_star_outline_32', self.view_whishlist)
-		ff.add_button('Коллекция', 'iob:ios7_box_outline_32', self.view_collection)
-		ff.add_button('Добавить', 'iob:ios7_compose_outline_32', self.view_new_game)
+		ff.add_button('Playing', 'iob:game_controller_a_32', self.view_playing)
+		ff.add_button('Whishlist', 'iob:ios7_star_outline_32', self.view_whishlist)
+		ff.add_button('All games', 'iob:ios7_box_outline_32', self.view_collection)
+		ff.add_button('Add new', 'iob:ios7_compose_outline_32', self.view_new_game)
 		
 		self.FormListView.add_subview(ff)
 

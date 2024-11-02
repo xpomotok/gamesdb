@@ -1,19 +1,10 @@
 """ 
-
-Файл с объектами можно сортировать, хоть по названию, хоть по рейтингу
-
-28.10.2019
-08.11.2019
-02.12.2019
-06.12.2019
-09.12.2019
-18.12.2019
-19.03.2020 - поле id заменено на title
+	Class for representing list of games
 """
 
 __version__ = '0.0.9.1'
 
-__all__ = []
+__all__ = ["GameList"]
 
 __author__ = 'Sergey Kuzmin <@gmail.com>'
 
@@ -22,8 +13,25 @@ import json
 from gamesdb.models.game import Game
 
 
+# Lists
+# ListId Title
+# 1      Whishlist
+# 2      NowPlaying
+
+# whishlist
+# ListId GameId
+# 1		 2
+# 1      23
+# 1      45
+
+# NowPlaying
+# ListId GameId
+# 2		 2
+# 2      23
+
+
 class GameList(object):
-	def __init__(self, title : str):
+	def __init__(self, title: str):
 		self.title = title
 		self.cursor = 0
 		self.count = 0
@@ -42,13 +50,12 @@ class GameList(object):
 			self.count -= 1
 		return self.games.pop(self.cursor)	
 
-	def sort_by_name(self, order) :
+	def sort_by_name(self, order):
 		pass
 
 	def get(self):
 		return self.games[self.cursor]
-		
-# сделать эти функции как в C++ функция изменяет переменную, принимая знак операции
+
 	def dec_cursor(self):
 		if self.cursor > 1:
 			self.cursor -= 1
@@ -156,22 +163,4 @@ class GameList(object):
 	def get_count(self):
 		return self.count
 
-
-def main():
-
-	Library = GameList("Library")
-	Library.load("db/games.json")
-	# print(js)
-	Library.save("db/games3.json")
-	
-
-
-if __name__ == '__main__':
-	# import console
-	# console.clear()
-	main()
-	#test_read_json()
-else:
-	#print("GameList class loaded!")
-	pass
 
