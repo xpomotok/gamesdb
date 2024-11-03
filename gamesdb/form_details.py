@@ -19,7 +19,7 @@ class FormDetails():
 		self.FormEdit.present('sheet', hide_close_button=True)
 
 	def show_details(self):
-		vu = ui.load_view("ui/details")
+		vu = ui.load_view("gui/details.pyui")
 		
 		rbtn1= ui.ButtonItem(title='Edit')
 		#rbtn1= ui.ButtonItem(title='', image='iob:ios7_copy_outline_24')
@@ -37,15 +37,6 @@ class FormDetails():
 			vs = vu['scrollview1']
 			imv = vs['imageview1']
 			
-			# img_view = ui.ImageView(frame=(8 + i * 90, 15, 80, 80), flex='tb')
-			# img_view.content_mode = ui.CONTENT_SCALE_ASPECT_FILL
-			# img_view.image = a.get_ui_image(size=(120, 120), crop=True)
-			# v.add_subview(img_view)
-			
-			#imv.width = 256
-			#imv.height = 256
-			
-			#png = Image.open(''.join([ui_config.covers_path, game1.image]))
 			
 			imv.image = img
 			imv.flex = 'tb'
