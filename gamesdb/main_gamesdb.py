@@ -8,8 +8,8 @@ from ui_config import Config
 import ui
 from models.game import Game
 from models.gamelist import GameList
-from gamesdb.ui.bottom_menu import BottomMenu
-from gamesdb.form_details import FormDetails
+from gui.bottom_menu import BottomMenu
+from form_details import FormDetails
 from form_edit import FormEdit
 
 config = Config()
@@ -81,7 +81,7 @@ class App(object):
 
     def create_main_view(self):
         self.FormListView = ui.View()
-        self.FormListView = ui.load_view("ui/GameListView.pyui")
+        self.FormListView = ui.load_view("gui/GameListView.pyui")
         self.Edit = ui.View()
         self.TableView = self.FormListView['tableview1']
         self.MainWindow = ui.NavigationView(self.FormListView)
