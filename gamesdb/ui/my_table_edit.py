@@ -6,7 +6,7 @@ __author__ = "Sergey Kuzmin"
 
 import ui
 from ui_config import ui_config
-from my_text_field_delegate import MyTextFieldDelegate
+from gui.my_text_field_delegate import MyTextFieldDelegate
 
 sections = ["Backlog", "Information"]
 labels = [('Title','Interest', 'Rating', 'Finished'), ('Platform', 'Genre', 'Released', 'Cover')]
@@ -86,3 +86,4 @@ class MyTableEditDataSource (object):
 	def tableview_move_row(self, tableview, from_section, from_row, to_section, to_row):
 		# Called when the user moves a row with the reordering control (in editing mode).
 		pass
+		
