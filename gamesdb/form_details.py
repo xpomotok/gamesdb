@@ -1,6 +1,6 @@
 import ui
 
-import gamesdb.main_gamesdb
+import main_gamesdb
 from models.game import Game
 from ui_config import ui_config
 from form_edit import FormEdit
