@@ -11,6 +11,7 @@ from ui_config import ui_config
 from gui.my_table_edit import MyTableEditDataSource
 from gui.my_text_field_delegate import MyTextFieldDelegate
 
+
 class FormEdit():
 	
 	def __init__(self, game : Game):
@@ -27,8 +28,9 @@ class FormEdit():
 		self.did_update = False
 
 		#self.Form = self.show_edit()
-		self.Form = self.show_edit_new()
-		
+		# self.Form = self.show_edit_new()
+		self.Form = self.show()
+
 	def edit_close(self, sender):
 		self.did_update = False
 		
@@ -51,8 +53,9 @@ class FormEdit():
 		
 		self.Form.close()
 		pass
-	
-	def show_edit_new(self) -> ui.View:
+
+	def show(self) -> ui.View:
+	# def show_edit_new(self) -> ui.View:
 		game1 : Game
 		game1 = self.CurrentGame	
 	

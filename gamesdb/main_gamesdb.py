@@ -141,13 +141,6 @@ class App(object):
 
     # self.Controller.update_view('details', model)
 
-    @staticmethod
-    def load_image(image) -> ui.Image:
-        if image != "":
-            return ui.Image(''.join([config.covers_path, image]))
-        else:
-            return ui.Image(''.join([config.covers_path, "unknown_game.png"]))
-
     def tableview_cell_for_row(self, tableview, section, row):
         # Create and return a cell for the given section/row
         # print("test")
@@ -161,7 +154,7 @@ class App(object):
         cell.text_label.text = data.title
         cell.detail_text_label.text = ''.join([data.platform, ", ", data.released])
 
-        img = self.load_image(data.image)
+        img = load_image(data.image)
 
         #
         # cell.image_view.content_mode =
@@ -206,6 +199,13 @@ class App(object):
         GameCollection.save(config.all_name)
         WishGames.save(config.wish_name)
         NowPlaying.save(config.play_name)
+
+
+def load_image(image) -> ui.Image:
+    if image != "":
+        return ui.Image(''.join([config.covers_path, image]))
+    else:
+        return ui.Image(''.join([config.covers_path, config.default_image]))
 
 
 def main():

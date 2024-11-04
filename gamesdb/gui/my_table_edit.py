@@ -8,6 +8,7 @@ import ui
 from ui_config import ui_config
 from gui.my_text_field_delegate import MyTextFieldDelegate
 
+
 sections = ["Backlog", "Information"]
 labels = [('Title','Interest', 'Rating', 'Finished'), ('Platform', 'Genre', 'Released', 'Cover')]
 sec_rows = [4, 4]
@@ -58,7 +59,7 @@ class MyTableEditDataSource (object):
 		cell.content_view.add_subview(col1)	
 		
 		# Mark the table header
-		if row%2== 0:
+		if row % 2 == 0:
 			col1.text_color = ui_config.edit_table_col1_color
 		else:
 			col1.text_color = ui_config.edit_table_col2_color

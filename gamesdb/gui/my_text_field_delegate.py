@@ -1,5 +1,6 @@
 import ui
 
+
 class MyTextFieldDelegate (object):
 		
 	def textfield_did_end_editing(self, textfield):
@@ -12,4 +13,3 @@ class MyTextFieldDelegate (object):
 		# 	hud_alert(key +" : " +value)
 		# 	did_update = True
 			
-		pass

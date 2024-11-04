@@ -3,12 +3,14 @@ __date__ = '31.06.2022'
 
 import ui
 from ui_config import ui_config
-from menu_button import menu_button
-from menu_button_label import menu_button_label
+from gui.menu_button import menu_button
+from gui.menu_button_label import menu_button_label
 
 
 class BottomMenu(ui.View):
-	''' Класс для создания нижнего меню (пока только нижнего). Через него создаются кнопочки с картинками и подписями '''
+	"""
+	Класс для создания нижнего меню (пока только нижнего). Через него создаются кнопочки с картинками и подписями
+	"""
 	
 	def __init__(self):
 # This will also be called without arguments when the view is loaded from a UI file.
@@ -35,8 +37,8 @@ class BottomMenu(ui.View):
 		self.alpha = 0.9
 		self.alpha = 1
 	
-		self.border_width=1
-		self.border_color="#c0c0c0"
+		self.border_width = 1
+		self.border_color = "#c0c0c0"
 		
 		pass
 		

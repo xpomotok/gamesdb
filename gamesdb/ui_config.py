@@ -28,7 +28,7 @@ class Config:
 	all_name = "db/games.json"
 	database = {1: "Wishlist", 2: "Now playing", 3: "Collection"}
 	data_files = {1: wish_name, 2: play_name, 3: all_name}
-
+	default_image = "unknown_game.png"
 	color_main_title = 'orange'
 	color_main_back = 'white'
 	main_frame = (0, 0, 390, 734)
