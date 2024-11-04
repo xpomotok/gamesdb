@@ -10,7 +10,7 @@ __author__ = 'Sergey Kuzmin <@gmail.com>'
 
 import codecs
 import json
-from gamesdb.models.game import Game
+from models.game import Game
 
 
 # Lists
@@ -162,5 +162,4 @@ class GameList(object):
 
 	def get_count(self):
 		return self.count
-
 
