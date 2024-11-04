@@ -1,8 +1,8 @@
 import ui
 
-import main_gamesdb
+#import main_gamesdb
 from models.game import Game
-from ui_config import ui_config
+from ui_config import ui_config, Config
 from form_edit import FormEdit
 
 
@@ -31,7 +31,7 @@ class FormDetails:
 		game1 = self.CurrentGame
 		
 		if game1:
-			img = gamesdb.main_gamesdb.load_image(game1.image)
+			img = load_image(game1.image)
 
 			vs = vu['scrollview1']
 			imv = vs['imageview1']
@@ -58,3 +58,10 @@ class FormDetails:
 			
 			vs['textview1'].text = game1.notes
 		return vu
+		
+		
+def load_image(image) -> ui.Image:
+    if image != "":
+        return ui.Image(''.join([Config.covers_path, image]))
+    else:
+        return ui.Image(''.join([Config.covers_path, Config.default_image]))
