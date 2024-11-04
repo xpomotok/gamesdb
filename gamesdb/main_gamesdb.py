@@ -1,6 +1,6 @@
 __version__ = '0.1.3.0'
 
-__all__ = ["App"]
+__all__ = ["App","load_image"]
 
 __author__ = 'Sergey Kuzmin <@gmail.com>'
 
@@ -30,8 +30,8 @@ class Controller(object):
 def show_view(game, view):
     my_view = view(game)
     my_view.name = game.title # toje lishnee
-    my_view.show_details()
-    my_view.present('sheet', hide_close_button=False)
+    vu = my_view.show()
+    vu.present('sheet', hide_close_button=False)
 
 
 class App(object):
@@ -99,8 +99,8 @@ class App(object):
         ff = BottomMenu()
         ff.frame = (bmenu_x, bmenu_y - 80 - (bmenu_h), bmenu_w, bmenu_h + 56)
 
-        ff.add_button('Playing', 'iob:game_controller_a_32', self.view_playing)
-        ff.add_button('Whishlist', 'iob:ios7_star_outline_32', self.view_wishlist)
+        ff.add_button('Playing', 'iow:game_controller_b_32', self.view_playing)
+        ff.add_button('Whishlist', 'iob:ios7_cart_outline_32', self.view_wishlist)
         ff.add_button('All games', 'iob:ios7_box_outline_32', self.view_collection)
         ff.add_button('Add new', 'iob:ios7_compose_outline_32', self.view_new_game)
 
@@ -174,14 +174,17 @@ class App(object):
     def view_playing(self, sender):
         self.CurrentFile = config.play_name
         self.change_current_view(NowPlaying)
+        #sender.tint_color = 'orange'
 
     def view_wishlist(self, sender):
         self.CurrentFile = config.wish_name
         self.change_current_view(WishGames)
+        #sender.tint_color = 'orange'
 
     def view_collection(self, sender):
         self.CurrentFile = config.all_name
         self.change_current_view(GameCollection)
+        #sender.tint_color = 'orange'
 
     def view_new_game(self, sender):
         # определить текущий список и добавить в него новую игру
