@@ -32,6 +32,6 @@ class Config:
 	color_main_title = 'orange'
 	color_main_back = '#e7e7e7'
 	main_frame = (0, 0, 390, 734)
-	tv_row_height = 64 # 64
+	tv_row_height = 64  # 64
 	
 	
