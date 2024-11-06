@@ -17,10 +17,16 @@ class FormDetails:
 		# should be simple FormEdit.show()
 		Editor = FormEdit(self.CurrentGame)
 		self.FormEdit = Editor.Form
+		self.FormEdit.background_color = Config.color_main_back
 		self.FormEdit.present('sheet', hide_close_button=True)
-
+		
+	def add_data(self, title, data):
+		value = "{}\t\t\t{}".format(title, data)
+		
+		return {'title':value,'image':None,'accessory_type':'none'}
+		
 	def show(self) -> ui.View:
-		vu = ui.load_view("gui/details.pyui")
+		vu = ui.load_view("gui/details-new.pyui")
 		
 		rbtn1 = ui.ButtonItem(title='Edit')
 		# rbtn1= ui.ButtonItem(title='', image='iob:ios7_copy_outline_24')
@@ -33,30 +39,29 @@ class FormDetails:
 		if game1:
 			img = load_image(game1.image)
 
-			vs = vu['scrollview1']
-			imv = vs['imageview1']
+			vs = vu['view1']
+			imv = vu['imageview1']
 			
 			imv.image = img
 			imv.flex = 'tb'
 			imv.content_mode = ui.CONTENT_SCALE_ASPECT_FIT
 
-			if game1.finished:
-				vs['labelFinished'].text = "Finished"
-			else:
-				vs['labelFinished'].text = "Not yet"
-				
-			vs['labelReleased'].text = game1.released
-			vs['labelPlatform'].text = game1.platform
-			vs['labelGenre'].text = game1.genre
-			vs['labelRating'].text = str(game1.rating)
-			vs['labelInterest'].text = str(game1.interest)
+			vu.name = game1.title
 		
-			if game1.is_playing:
-				vs['labelIsPlaying'].text = "Да"
-			else:
-				vs['labelIsPlaying'].text = "Нет"
+			game_data = []
+			game_data.append(self.add_data('Genre', game1.genre))
+			game_data.append(self.add_data('Released', game1.released))
+			game_data.append(self.add_data('Platform', game1.platform))
 			
-			vs['textview1'].text = game1.notes
+			game_data.append(self.add_data('Rating', game1.rating))
+			game_data.append(self.add_data('Finished', game1.finished))
+			game_data.append(self.add_data('Interest', game1.interest))
+			
+			tds = ui.ListDataSource(game_data)
+			tv = vu['tableview1']
+			tv.data_source = tds
+			tv.reload()
+			
 		return vu
 		
 		
@@ -65,4 +70,3 @@ def load_image(image) -> ui.Image:
         return ui.Image(''.join([Config.covers_path, image]))
     else:
         return ui.Image(''.join([Config.covers_path, Config.default_image]))
-

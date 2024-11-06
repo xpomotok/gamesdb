@@ -30,5 +30,8 @@ class Config:
 	data_files = {1: wish_name, 2: play_name, 3: all_name}
 	default_image = "unknown_game.png"
 	color_main_title = 'orange'
-	color_main_back = 'white'
+	color_main_back = '#e7e7e7'
 	main_frame = (0, 0, 390, 734)
+	tv_row_height = 64 # 64
+	
+	

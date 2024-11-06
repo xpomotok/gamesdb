@@ -7,7 +7,7 @@ __author__ = "Sergey Kuzmin"
 import ui
 from models.game import Game
 from gui.my_text_view_delegate import MyTextViewDelegate
-from ui_config import ui_config
+from ui_config import ui_config, Config
 from gui.my_table_edit import MyTableEditDataSource
 from gui.my_text_field_delegate import MyTextFieldDelegate
 
@@ -29,6 +29,7 @@ class FormEdit():
 
 		#self.Form = self.show_edit()
 		# self.Form = self.show_edit_new()
+		
 		self.Form = self.show()
 
 	def edit_close(self, sender):
@@ -66,18 +67,18 @@ class FormEdit():
 		self.data.append(section1)
 
 		ve = ui.View(frame=(0,0,375,768))
-		ve.background_color = ui_config.form_color
-		
+		#ve.background_color = ui_config.form_color
+		ve.background_color = 'grey'
 		if game1.title == 'New':
 			ve.name = "Add new game"
 		else:
 			ve.name = "Edit Game"
 		
-		vs = ui.ScrollView(frame=(0,0,375,768))
-		vs.content_size = 374, 1080
+		vs = ui.ScrollView(frame=(0,0,375,640))
+		vs.content_size = 374, 640 #1080
 	
 		vs.scroll_enabled=True
-		vs.background_color = ui_config.form_color #"#ffffff"
+		vs.background_color = Config.color_main_back # ui_config.form_color #"#ffffff"
 		
 		rbtn1= ui.ButtonItem(title='Done')
 		rbtn1.action = self.save_all
@@ -91,10 +92,10 @@ class FormEdit():
 		tv1.data_source = self.EditDataSource
 		tv1.data_source.items = self.data
 		
-		tv1.frame = (16,16, 374-32, 430)
+		tv1.frame = (24 ,16, 374-32, 480)
 		tv1.name = 'EditorTable'
 		tv1.corner_radius = 9
-		tv1.border_width = 1
+		tv1.border_width = 0 # 1
 		vs.add_subview(tv1)
 		#ve.add_subview(tv)
 		
@@ -104,9 +105,13 @@ class FormEdit():
 		# c = text_view('Notes', 0, 40+360-5)
 		# vs.add_subview(c)
 	
+		caption = ui.Label(frame = (40, 504, 374-32, 24))
+		caption.text = "Details"
+		caption.font = ("<system-bold>", 18)
+		vs.add_subview(caption)
 		# Текстовое поле для ввода описания 
-		d = ui.TextView(frame=(16, 480, 374-32, 360))
-		d.border_width = 1
+		d = ui.TextView(frame=(24, 530, 374-32, 128))
+		d.border_width = 0
 		d.corner_radius = 6
 		
 		d.background_color = ui_config.edit_textview_color

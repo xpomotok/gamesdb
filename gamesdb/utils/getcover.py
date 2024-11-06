@@ -20,10 +20,10 @@ if sys.version_info[0] >= 3:
 else:
 	from urllib import urlretrieve
 
-from ui_config import Config
+from ... import ui_config
 
 
-config = Config()
+config = ui_config.Config()
 
 
 def get_cover(url, file_name):

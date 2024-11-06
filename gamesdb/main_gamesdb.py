@@ -1,4 +1,4 @@
-__version__ = '0.1.3.0'
+__version__ = '0.1.3.4'
 
 __all__ = ["App","load_image"]
 
@@ -9,8 +9,9 @@ import ui
 from models.game import Game
 from models.gamelist import GameList
 from gui.bottom_menu import BottomMenu
-from form_details import FormDetails
+#from form_details import FormDetails
 from form_edit import FormEdit
+from form_details_new import FormDetails
 
 config = Config()
 
@@ -90,6 +91,8 @@ class App(object):
         self.MainWindow.tint_color = config.color_main_title
         self.MainWindow.background_color = config.color_main_back
         self.MainWindow.frame = config.main_frame
+        self.TableView.row_height = config.tv_row_height
+
 
         bmenu_x = self.MainWindow.bounds[0]
         bmenu_w = self.MainWindow.bounds[2]
@@ -111,6 +114,9 @@ class App(object):
         rbtn1.action = self.save_all
 
         self.MainWindow.right_button_items = rbtn1,
+        
+        self.MainWindow.bg_color = config.color_main_back
+       # self.MainWindow.tint_color = 'grey'
         self.MainWindow.present(style='fullscreen', hide_title_bar=False, hide_close_button=False)
 
     def run(self):
@@ -130,14 +136,6 @@ class App(object):
         self.CurrentGame = tableview.data_source.items[row]
         show_view(self.CurrentGame, FormDetails)
 
-        # details = FormDetails(self.CurrentList.games[row])
-        # # print(self.CurrentList.games[row])
-        # # Details = FormDetails(self.CurrentGame)
-        # self.FormDetails = details.show_details() # здесь по классике должно быть show
-        # self.FormDetails.name = self.CurrentGame.title
-        # self.FormDetails.present('sheet', hide_close_button=False)
-
-    # self.MainWindow.pop_view()
 
     # self.Controller.update_view('details', model)
 
@@ -155,10 +153,9 @@ class App(object):
         cell.detail_text_label.text = ''.join([data.platform, ", ", data.released])
 
         img = load_image(data.image)
-
+        
         #
-        # cell.image_view.content_mode =
-        # cell.image_view.flex = 'tb'
+        #cell.image_view.content_mode = cell.image_view.flex = 'tb'
         cell.image_view.image = img
 
         cell.image_view.flex = 'tb'

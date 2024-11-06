@@ -9,11 +9,11 @@ if sys.version_info[0] >= 3:
 else:
 	from urllib import urlretrieve
 
-from ui_config import Config
+
 
 size = 128, 128
 
-config = Config()
+
 
 def get_cover(url : str, fname : str) -> Image:
 	img_name = fname+".jpg"
