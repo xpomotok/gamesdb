@@ -5,7 +5,6 @@ from models.gamelist import GameList
 from gui.bottom_menu import BottomMenu
 from form_edit import FormEdit
 from form_details_new import FormDetails
-from ui_config import Config
 
 
 class FormMain:
@@ -14,6 +13,7 @@ class FormMain:
         self.MainWindow: ui.NavigationView
         self.app = app
 
+    def show(self):
         # Load gui from file and insert into Main window
         self.FormListView = ui.View()
         self.FormListView = ui.load_view("gui/GameListView.pyui")
@@ -49,11 +49,11 @@ class FormMain:
         self.FormListView.add_subview(ff)
 
         right_button = ui.ButtonItem(title='Save')
-        right_button.action = self.save_all
+        right_button.action = self.app.save_all
 
         self.MainWindow.right_button_items = right_button,
-
-    def show(self):
+        self.change_current_view(self.app.CurrentList)
+        
         self.MainWindow.present(style='fullscreen', hide_title_bar=False, hide_close_button=False)
 
     # Функции для работы с основным списком игр
@@ -95,17 +95,18 @@ class FormMain:
     def view_playing(self, sender):
         self.app.CurrentFile = Config.play_name
         self.change_current_view(self.app.now_playing)
-        #sender.tint_color = 'orange'
+        sender.tint_color = 'orange'
 
     def view_wishlist(self, sender):
         self.app.CurrentFile = Config.wish_name
-        self.change_current_view(self.app.wish_ games)
-        #sender.tint_color = 'orange'
+        self.change_current_view(self.app.wish_games)
+        sender.tint_color = 'orange'
 
     def view_collection(self, sender):
         self.app.CurrentFile = Config.all_name
-        self.change_current_view(self.app.game_collection)
-        #sender.tint_color = 'orange'
+        self.app.CurrentList = self.app.game_collection
+        self.change_current_view(self.app.CurrentList)
+        sender.tint_color = 'orange'
 
     def view_new_game(self, sender):
         # определить текущий список и добавить в него новую игру
@@ -122,7 +123,7 @@ class FormMain:
     def change_current_view(self, games):
         self.app.CurrentList = games
         self.app.CurrentFile = games.title
-        self.FormListView.name = self.CurrentList.title
+        self.FormListView.name = self.app.CurrentList.title
 
         tv = self.TableView
         tv.delegate.tableview_did_select = self.tableview_did_select
@@ -132,9 +133,17 @@ class FormMain:
         tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row
         tv.reload()
         tv.editable = True
-
+        
+    # for a single game
     def show_view(self, game, view):
         my_view = view(game)
         my_view.name = game.title  # toje lishnee
         vu = my_view.show()
         vu.present('sheet', hide_close_button=False)
+        
+
+def load_image(image) -> ui.Image:
+    if image != "":
+        return ui.Image(''.join([Config.covers_path, image]))
+    else:
+        return ui.Image(''.join([Config.covers_path, Config.default_image]))
