@@ -4,7 +4,7 @@ import ui
 from models.game import Game
 from ui_config import ui_config, Config
 from form_edit import FormEdit
-
+from console import hud_alert
 
 class FormDetails:
 	

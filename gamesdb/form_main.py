@@ -8,6 +8,7 @@ from form_details_new import FormDetails
 
 
 class FormMain:
+
     def __init__(self, app) -> None:
         self.FormEdit = None
         self.MainWindow: ui.NavigationView
@@ -42,25 +43,41 @@ class FormMain:
 
         # Add bottom buttons
         ff.add_button('Playing', 'iow:game_controller_b_32', self.view_playing)
-        ff.add_button('Wishlist', 'iob:ios7_cart_outline_32', self.view_wishlist)
-        ff.add_button('All games', 'iob:ios7_box_outline_32', self.view_collection)
-        ff.add_button('Add new', 'iob:ios7_compose_outline_32', self.view_new_game)
+        ff.add_button('Favorite', 'iob:ios7_heart_outline_32',
+                      self.view_favorite)
+        ff.add_button('Wishlist', 'iob:ios7_cart_outline_32',
+                      self.view_wishlist)
+        ff.add_button('All games', 'iob:ios7_box_outline_32',
+                      self.view_collection)
 
         self.FormListView.add_subview(ff)
 
         right_button = ui.ButtonItem(title='Save')
         right_button.action = self.app.save_all
 
-        self.MainWindow.right_button_items = right_button,
+        add_button = ui.ButtonItem(title='Add')
+        add_button.action = self.view_new_game
+
+        self.MainWindow.right_button_items = add_button, right_button,
         self.change_current_view(self.app.CurrentList)
-        
-        self.MainWindow.present(style='fullscreen', hide_title_bar=False, hide_close_button=False)
+
+        tv = self.TableView
+        tv.delegate.tableview_did_select = self.tableview_did_select
+        tv.delegate.tableview_delete = self.tableview_delete
+        self.MainWindow.present(style='fullscreen',
+                                hide_title_bar=False,
+                                hide_close_button=False)
 
     # Функции для работы с основным списком игр
     def tableview_did_select(self, tableview, section, row):
         # Called when a row is selected.
         self.app.CurrentGame = tableview.data_source.items[row]
         self.show_view(self.app.CurrentGame, FormDetails)
+
+    def tableview_delete(self, tableview, section, row):
+        # Called when the user confirms deletion of the given row.
+        self.app.CurrentGame = tableview.data_source.items[row]
+        print(self.app.CurrentGame)
 
     def tableview_cell_for_row(self, tableview, section, row):
         # Create and return a cell for the given section/row
@@ -73,7 +90,8 @@ class FormMain:
         cell = ui.TableViewCell(style='subtitle')
         cell.accessory_type = 'disclosure_indicator'
         cell.text_label.text = data.title
-        cell.detail_text_label.text = ''.join([data.platform, ", ", data.released])
+        cell.detail_text_label.text = ''.join(
+            [data.platform, ", ", data.released])
 
         img = load_image(data.image)
 
@@ -91,7 +109,6 @@ class FormMain:
         '@type sender: ui.Button'
         sender.superview.close()
 
-
     def view_playing(self, sender):
         self.app.CurrentFile = Config.play_name
         self.change_current_view(self.app.now_playing)
@@ -108,6 +125,12 @@ class FormMain:
         self.change_current_view(self.app.CurrentList)
         sender.tint_color = 'orange'
 
+    def view_favorite(self, sender):
+        self.app.CurrentFile = Config.fav_name
+        self.app.CurrentList = self.app.fav_games
+        self.change_current_view(self.app.CurrentList)
+        sender.tint_color = 'orange'
+
     def view_new_game(self, sender):
         # определить текущий список и добавить в него новую игру
         # self.CurrentList = GameCollection
@@ -118,6 +141,8 @@ class FormMain:
         self.app.CurrentGame = new_game
         editor = FormEdit(self.app.CurrentGame)
         self.FormEdit = editor.Form
+
+        self.FormEdit.background_color = Config.color_main_back
         self.FormEdit.present('sheet', hide_close_button=True)
 
     def change_current_view(self, games):
@@ -126,24 +151,24 @@ class FormMain:
         self.FormListView.name = self.app.CurrentList.title
 
         tv = self.TableView
-        tv.delegate.tableview_did_select = self.tableview_did_select
 
         tds = ui.ListDataSource(items=self.app.CurrentList.games)
         tv.data_source = tds
         tv.data_source.tableview_cell_for_row = self.tableview_cell_for_row
         tv.reload()
         tv.editable = True
-        
+
     # for a single game
     def show_view(self, game, view):
         my_view = view(game)
         my_view.name = game.title  # toje lishnee
         vu = my_view.show()
         vu.present('sheet', hide_close_button=False)
-        
+
 
 def load_image(image) -> ui.Image:
     if image != "":
         return ui.Image(''.join([Config.covers_path, image]))
     else:
         return ui.Image(''.join([Config.covers_path, Config.default_image]))
+

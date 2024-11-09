@@ -26,8 +26,9 @@ class Config:
 	wish_name = "db/wishlist.json"
 	play_name = "db/playing.json"
 	all_name = "db/games.json"
-	database = {1: "Wishlist", 2: "Now playing", 3: "Collection"}
-	data_files = {1: wish_name, 2: play_name, 3: all_name}
+	fav_name = "db/favorite.json"
+	database = {1: "Wishlist", 2: "Now playing", 3: "Collection", 4: "Favorite"}
+	data_files = {1: wish_name, 2: play_name, 3: all_name, 4: fav_name}
 	default_image = "unknown_game.png"
 	color_main_title = 'orange'
 	color_main_back = '#e7e7e7'

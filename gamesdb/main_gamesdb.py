@@ -1,4 +1,4 @@
-__version__ = '0.1.4.0'
+__version__ = '0.1.4.4'
 
 __all__ = ["App"]
 
@@ -32,10 +32,12 @@ class App(object):
         self.wish_games = GameList(config.database[1])
         self.now_playing = GameList(config.database[2])
         self.game_collection = GameList(config.database[3])
-
+        self.fav_games = GameList(config.database[4])
         self.wish_games.load(config.data_files[1])
         self.now_playing.load(config.data_files[2])
         self.game_collection.load(config.data_files[3])
+        self.fav_games.load(config.data_files[4])
+        
         self.CurrentList = self.wish_games
         self.CurrentFile = config.wish_name
         self.MainWindow = FormMain(self)
@@ -47,6 +49,7 @@ class App(object):
         self.game_collection.save(config.all_name)
         self.wish_games.save(config.wish_name)
         self.now_playing.save(config.play_name)
+        self.fav_games.save(config.fav_name)
 
 
 def main():

@@ -31,11 +31,11 @@
     "frame" : "{{0, 0}, {320, 480}}",
     "class" : "View",
     "attributes" : {
-      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
-      "enabled" : true,
-      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
       "background_color" : "RGBA(0.903073,0.903073,0.903073,1.000000)",
+      "enabled" : true,
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
       "name" : "Wishlist",
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
       "flex" : ""
     },
     "selected" : false
