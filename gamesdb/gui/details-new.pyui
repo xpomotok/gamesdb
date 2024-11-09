@@ -1,0 +1,132 @@
+[
+  {
+    "nodes" : [
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{0, 0}, {390, 191}}",
+        "class" : "View",
+        "attributes" : {
+          "flex" : "",
+          "border_width" : 0,
+          "frame" : "{{110, 190}, {100, 100}}",
+          "class" : "View",
+          "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+          "uuid" : "ECE78D57-2749-44F1-B1A2-147EBC95ADA5",
+          "corner_radius" : 6,
+          "name" : "view 1"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{131, 30}, {128, 128}}",
+        "class" : "ImageView",
+        "attributes" : {
+          "frame" : "{{110, 190}, {100, 100}}",
+          "class" : "ImageView",
+          "name" : "imageview1",
+          "uuid" : "9D8D7E89-F5FE-410A-8F7D-67F3CD9E6C80"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{21, 208}, {344, 216}}",
+        "class" : "TableView",
+        "attributes" : {
+          "uuid" : "6C930674-F126-4E40-988D-CC0E1913B2B1",
+          "corner_radius" : 12,
+          "background_color" : "RGBA(1.0, 1.0, 1.0, 1.0)",
+          "frame" : "{{60, 140}, {200, 200}}",
+          "data_source_items" : "Genre\nPlatform\nReleased\nInterest\nStars\nPlaying\nFinished",
+          "data_source_number_of_lines" : 1,
+          "border_width" : 0,
+          "data_source_delete_enabled" : false,
+          "data_source_font_size" : 18,
+          "row_height" : 48,
+          "class" : "TableView",
+          "name" : "tableview1",
+          "flex" : "WH"
+        },
+        "selected" : true
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{0, 581}, {390, 144}}",
+        "class" : "View",
+        "attributes" : {
+          "flex" : "",
+          "border_width" : 0,
+          "frame" : "{{110, 190}, {100, 100}}",
+          "class" : "View",
+          "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+          "uuid" : "ECE78D57-2749-44F1-B1A2-147EBC95ADA5",
+          "corner_radius" : 6,
+          "name" : "view2"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{21, 594}, {163, 45}}",
+        "class" : "Button",
+        "attributes" : {
+          "border_width" : 0,
+          "image_name" : "iob:heart_24",
+          "frame" : "{{200, 304}, {80, 32}}",
+          "tint_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+          "title" : "Favorite",
+          "uuid" : "C716E016-E2CF-4200-9F67-6A05DD91D683",
+          "background_color" : "RGBA(0.183215,0.586288,0.366430,1.000000)",
+          "class" : "Button",
+          "corner_radius" : 9,
+          "name" : "btnFavorite",
+          "font_size" : 15
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{202, 594}, {163, 45}}",
+        "class" : "Button",
+        "attributes" : {
+          "border_width" : 0,
+          "font_size" : 15,
+          "frame" : "{{200, 304}, {80, 32}}",
+          "tint_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+          "title" : "Wishlist",
+          "uuid" : "C716E016-E2CF-4200-9F67-6A05DD91D683",
+          "background_color" : "RGBA(0.813239,0.101655,0.101655,1.000000)",
+          "class" : "Button",
+          "corner_radius" : 9,
+          "name" : "btnWishlist",
+          "image_name" : "iob:ios7_cart_24"
+        },
+        "selected" : false
+      }
+    ],
+    "frame" : "{{0, 0}, {390, 660}}",
+    "class" : "View",
+    "attributes" : {
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "enabled" : true,
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "background_color" : "RGBA(0.924350,0.924350,0.924350,1.000000)",
+      "name" : "",
+      "flex" : ""
+    },
+    "selected" : false
+  }
+]

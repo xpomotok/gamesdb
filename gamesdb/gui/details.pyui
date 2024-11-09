@@ -1,0 +1,377 @@
+[
+  {
+    "nodes" : [
+      {
+        "nodes" : [
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{62, 16}, {255, 256}}",
+            "class" : "ImageView",
+            "attributes" : {
+              "border_width" : 2,
+              "frame" : "{{110, 462}, {100, 100}}",
+              "corner_radius" : 6,
+              "class" : "ImageView",
+              "name" : "imageview1",
+              "uuid" : "394B36EC-2670-49B6-AA30-F4C1293C710A"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{13, 303}, {150, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "label1",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "F1E30B5D-C95D-476E-8BB9-EDE43AFB4AD4",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "История",
+              "font_size" : 18,
+              "font_name" : "<System-Bold>"
+            },
+            "selected" : true
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{13, 414}, {150, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "label2",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "E046E677-C732-4425-9769-8ED2EDDA6DDF",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "Информация",
+              "font_size" : 18,
+              "font_name" : "<System-Bold>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{141, 484}, {150, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "labelReleased",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "4B9CF3AE-1F34-423B-AE8A-864C485B2CC0",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "LabelReleased",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{141, 454}, {150, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "labelPlatform",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "6A69C88C-23FD-425E-8849-C30FA200F7B7",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "LabelPlatform",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{13, 603}, {342, 382}}",
+            "class" : "TextView",
+            "attributes" : {
+              "uuid" : "1400C8B3-D81E-4DA0-BE6B-E258562E24C4",
+              "font_size" : 17,
+              "corner_radius" : 9,
+              "frame" : "{{88, 412}, {200, 200}}",
+              "editable" : true,
+              "border_width" : 1,
+              "alignment" : "left",
+              "autocorrection_type" : "default",
+              "font_name" : "<System>",
+              "spellchecking_type" : "default",
+              "class" : "TextView",
+              "name" : "textview1",
+              "flex" : "WH"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{141, 514}, {176, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "labelGenre",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "2327D9A4-D878-4AAF-8B55-F177EBFDAE49",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "LabelGenre",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{141, 343}, {54, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "labelInterest",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "3EF43FE3-4F29-4DB7-9133-B74F2E8E1D89",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "LabelInterest",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{141, 374}, {54, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "labelRating",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "9CAF1758-57B1-4F9A-8E68-846FD88219A0",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "LabelRating",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{301, 343}, {68, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "labelFinished",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "952B84CC-90DC-413F-ABCE-0DB12A931335",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "LabelFinished",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{29, 343}, {90, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "label3",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "C57F42A0-545E-43B0-8CE9-7B09BC8AE6CE",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "Интерес",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{29, 374}, {90, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "label4",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "3945931B-623B-42DD-9845-AAC83235EB5A",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "Оценка",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{192, 343}, {90, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "label5",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "676D1218-CA52-4D6F-AD09-E6AA60DE190E",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "Пройдена",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{29, 454}, {111, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "label6",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "8AB2C8F2-AFB5-4FC8-971E-DD447B984A1B",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "Платформа",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{29, 484}, {104, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "label7",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "BBBD66A3-7CFB-43AC-A065-3D40D02F72B9",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "Год выпуска",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{29, 514}, {104, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "label8",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "069504A2-E1C4-4FD2-97A7-3BDC1CCC36BD",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "Жанр",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{13, 554}, {205, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "label9",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "2C6458AF-67AD-4B29-95E9-DAEB32704C3A",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "Описание",
+              "font_size" : 18,
+              "font_name" : "<System-Bold>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{192, 374}, {90, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "label10",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "B33DE698-529A-44E0-A7D3-17950504E16A",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "Играю",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          },
+          {
+            "nodes" : [
+
+            ],
+            "frame" : "{{301, 374}, {68, 32}}",
+            "class" : "Label",
+            "attributes" : {
+              "name" : "labelIsPlaying",
+              "frame" : "{{113, 496}, {150, 32}}",
+              "uuid" : "7A98438E-049C-461D-AA9F-5B5E3FCC26FA",
+              "class" : "Label",
+              "alignment" : "left",
+              "text" : "IsPlaying",
+              "font_size" : 18,
+              "font_name" : "<System>"
+            },
+            "selected" : false
+          }
+        ],
+        "frame" : "{{6, 6}, {375, 634}}",
+        "class" : "ScrollView",
+        "attributes" : {
+          "uuid" : "17412D76-1E08-40CB-9DB7-0E4F61FC7E2D",
+          "frame" : "{{80, 160}, {320, 320}}",
+          "content_height" : 1024,
+          "class" : "ScrollView",
+          "name" : "scrollview1",
+          "content_width" : 375
+        },
+        "selected" : false
+      }
+    ],
+    "frame" : "{{0, 0}, {480, 640}}",
+    "class" : "View",
+    "attributes" : {
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "enabled" : true,
+      "background_color" : "RGBA(0.971678,0.971678,0.971678,1.000000)",
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "name" : "About",
+      "flex" : ""
+    },
+    "selected" : false
+  }
+]
