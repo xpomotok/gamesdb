@@ -42,6 +42,34 @@
             "description": "",
             "pics": [],
             "is_playing": false
+        },
+        {
+            "title": "Forza Motorsport 4",
+            "genre": "Racing",
+            "interest": "100",
+            "finished": false,
+            "notes": "",
+            "platform": "Xbox 360",
+            "released": "2014",
+            "rating": "5",
+            "image": "",
+            "description": "",
+            "pics": [],
+            "is_playing": false
+        },
+        {
+            "title": "Forza Horizon 2",
+            "genre": "Racing",
+            "interest": "100",
+            "finished": false,
+            "notes": "",
+            "platform": "Xbox 360",
+            "released": "",
+            "rating": "5",
+            "image": "",
+            "description": "",
+            "pics": [],
+            "is_playing": false
         }
     ]
 }

@@ -10,24 +10,6 @@ __author__ = 'Sergey Kuzmin <@gmail.com>'
 
 import codecs
 import json
-from models.game import Game
-
-
-# Lists
-# ListId Title
-# 1      Whishlist
-# 2      NowPlaying
-
-# whishlist
-# ListId GameId
-# 1		 2
-# 1      23
-# 1      45
-
-# NowPlaying
-# ListId GameId
-# 2		 2
-# 2      23
 
 
 class GameList(object):

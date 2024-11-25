@@ -21,6 +21,7 @@ class FormMain:
         self.Edit = ui.View()
         self.TableView = self.FormListView['tableview1']
         self.MainWindow = ui.NavigationView(self.FormListView)
+        self.FormListView.navigation_bar_hidden = True
 
         # Configure Main window appearance
         self.MainWindow.name = Config.app_name
@@ -111,6 +112,7 @@ class FormMain:
 
     def view_playing(self, sender):
         self.app.CurrentFile = Config.play_name
+        self.FormListView.name = 'Heeellloooo'
         self.change_current_view(self.app.now_playing)
         sender.tint_color = 'orange'
 
@@ -148,7 +150,7 @@ class FormMain:
     def change_current_view(self, games):
         self.app.CurrentList = games
         self.app.CurrentFile = games.title
-        self.FormListView.name = self.app.CurrentList.title
+        self.MainWindow.name = self.app.CurrentList.title
 
         tv = self.TableView
 

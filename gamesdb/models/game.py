@@ -30,6 +30,7 @@ import json
 class Game(object):
 	
 	def __init__(self, title=""):
+		self.__id__ = 0
 		self.title = title
 		self.genre = ""
 		self.interest = 0
@@ -88,7 +89,18 @@ class Game(object):
 
 	def serialize(self):
 		return self.__dict__
-		
+
+	def __repr__(self) -> str:
+		# StringBuilder
+		return " ".join([self.title, self.genre, self.platform, self.released, self.rating, self.description, self.image])
+
+	def __str__(self) -> str:
+		# StringBuilder
+		return " ".join([self.title, self.genre, self.platform, self.released, self.rating, self.description, self.image])
+
+
+
+
 
 
 
