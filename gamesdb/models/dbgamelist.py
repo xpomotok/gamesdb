@@ -76,10 +76,6 @@ class DbGameList:
             games_map = json_map["games"]
 
             for item in games_map:
-                # не удалять !
-                # print(type(item))
-                # print(item)
-
                 game = Game("")
                 game.deserialize(item)
                 self.add_game(game)

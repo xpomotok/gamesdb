@@ -1,5 +1,6 @@
 import ui
 from ui_config import ui_config
+from abc import ABC
 
 
 def menu_button(left, top, width, height, pic='iob:archive_24') -> ui.Button:
