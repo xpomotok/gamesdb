@@ -29,9 +29,9 @@ class Config:
 	main_frame = (0, 0, 390, 734)
 	tv_row_height = 64  # 64
 	
-	database = {1: "Wishlist", 2: "Now playing", 3: "Collection", 4: "Favorite"}
-	data_files = {1: "db/wishlist.json",
-				  2: "db/playing.json",
-				  3: "db/games.json",
-				  4: "db/favorite.json"}
+	database = {0: "Wishlist", 1: "Now playing", 2: "Collection", 3: "Favorite"}
+	data_files = {0: "db/wishlist.json",
+				  1: "db/playing.json",
+				  2: "db/games.json",
+				  3: "db/favorite.json"}
 

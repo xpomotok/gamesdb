@@ -5,10 +5,9 @@ __all__ = ["App"]
 __author__ = 'Sergey Kuzmin <@gmail.com>'
 
 from ui_config import Config
-import ui
 from models.game import Game
 from models.gamelist import GameList
-from form_main import FormMain
+# from form_main import FormMain
 
 
 config = Config()
@@ -39,24 +38,23 @@ class App(object):
         self.CurrentFile = ""
 
         self.lists = []
-        for k, v in config.database:
-            game_list = GameList(config.database[k])
-            game_list.load(config.database[k])
+        for k, v in config.database.items():
+            game_list = GameList(Config.database[k])
+            game_list.load(Config.data_files[k])
             self.lists.append(game_list)
 
-        self.wish_games = GameList(config.database[1])
-        self.now_playing = GameList(config.database[2])
-        self.game_collection = GameList(config.database[3])
-        self.fav_games = GameList(config.database[4])
-        self.wish_games.load(config.data_files[1])
-        self.now_playing.load(config.data_files[2])
-        self.game_collection.load(config.data_files[3])
-        self.fav_games.load(config.data_files[4])
+        self.wish_games = GameList(config.database[0])
+        self.now_playing = GameList(config.database[1])
+        self.game_collection = GameList(config.database[2])
+        self.fav_games = GameList(config.database[3])
+        self.wish_games.load(config.data_files[0])
+        self.now_playing.load(config.data_files[1])
+        self.game_collection.load(config.data_files[2])
+        self.fav_games.load(config.data_files[3])
         
         # self.CurrentList = self.wish_games
         # self.CurrentFile = config.wish_name
         self.change_list(0)
-        self.MainWindow = FormMain(self)
 
     def change_list(self, index):
         self.id = 333
@@ -64,7 +62,10 @@ class App(object):
         self.CurrentFile = config.data_files[index]
 
     def run(self):
-        self.MainWindow.show()
+        # Uncomment for real app
+        # self.MainWindow = form_main.FormMain(self)
+        # self.MainWindow.show()
+        pass
 
     def save_all(self, sender):
 

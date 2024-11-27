@@ -11,6 +11,8 @@ __author__ = 'Sergey Kuzmin <@gmail.com>'
 import codecs
 import json
 
+from gamesdb.models.game import Game
+
 
 class GameList(object):
 	def __init__(self, title: str):

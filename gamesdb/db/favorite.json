@@ -1,0 +1,48 @@
+{
+    "version": "1.1",
+    "games": [
+        {
+            "title": "Half-Life",
+            "genre": "FPS",
+            "interest": "0",
+            "finished": false,
+            "notes": "Same old good Half-Life",
+            "platform": "PC",
+            "released": "1997",
+            "rating": "0",
+            "image": "",
+            "description": "",
+            "pics": [],
+            "is_playing": false
+        },
+        {
+            "title": "Half-Life 2",
+            "genre": "FPS",
+            "interest": "0",
+            "finished": false,
+            "notes": "It's too long to complete once again.",
+            "platform": "PC",
+            "released": "",
+            "rating": "100",
+            "image": "",
+            "description": "",
+            "pics": [],
+            "is_playing": false
+        },
+        {
+            "title": "Minecraft",
+            "genre": "Sandbox",
+            "interest": "0",
+            "finished": false,
+            "notes": "Time consumer. A lot of",
+            "platform": "PC iOS Vita",
+            "released": "",
+            "rating": "0",
+            "image": "",
+            "description": "",
+            "pics": [],
+            "is_playing": false
+        }
+    ]
+}
+
