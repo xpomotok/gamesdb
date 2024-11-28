@@ -1,13 +1,13 @@
-__version__ = '0.1.4.5'
+__version__ = '0.1.6.0'
 
-__all__ = ["App"]
+__all__ = ["app"]
 
 __author__ = 'Sergey Kuzmin <@gmail.com>'
 
 from ui_config import Config
 from models.game import Game
 from models.gamelist import GameList
-# from form_main import FormMain
+from form import MainForm
 
 
 config = Config()
@@ -54,12 +54,18 @@ class App(object):
         
         # self.CurrentList = self.wish_games
         # self.CurrentFile = config.wish_name
+
+        self.MainForm = MainForm()
         self.change_list(0)
 
     def change_list(self, index):
         self.id = 333
         self.CurrentList = self.lists[index]
         self.CurrentFile = config.data_files[index]
+
+        self.controller.model = self.CurrentList
+        self.controller.update_view(app.controller.model)
+
 
     def run(self):
         # Uncomment for real app
@@ -78,10 +84,12 @@ class App(object):
         self.fav_games.save(config.fav_name)
 
 
-def main():
-    games_db = App()
-    games_db.run()
-
-
-if __name__ == "__main__":
-    main()
+app = App()
+app.run()
+# def main():
+#     games_db = App()
+#     games_db.run()
+#
+#
+# if __name__ == "__main__":
+#     main()

@@ -36,3 +36,6 @@ class Menu:
 
     def get_caption(self, index):
         return self.__items__[index].get_caption()
+
+    def menu_item(self, index):
+        self.__items__[index].execute()
